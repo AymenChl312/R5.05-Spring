@@ -1,0 +1,28 @@
+package fr.aymen.tp_spring.Article.Controller;
+
+import fr.aymen.tp_spring.Article.Model.Publication;
+import fr.aymen.tp_spring.Article.Repository.PublicationRepository;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/publications")
+public class PublicationController {
+
+    private final PublicationRepository publicationRepository;
+
+    public PublicationController(PublicationRepository publicationRepository) {
+        this.publicationRepository = publicationRepository;
+    }
+
+    @GetMapping
+    public List<Publication> getAll() {
+        return publicationRepository.findAll();
+    }
+
+    @PostMapping
+    public Publication create(@RequestBody Publication publication) {
+        return publicationRepository.save(publication);
+    }
+}

@@ -1,0 +1,6 @@
+package fr.aymen.tp_spring.Article.Repository;
+
+import fr.aymen.tp_spring.Article.Model.Publication;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PublicationRepository extends JpaRepository<Publication, Long> {}
